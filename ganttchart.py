@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.dates import date2num
 from datetime import datetime, timedelta
+import os
 
 # Define the project tasks and their durations
 tasks = [
@@ -39,6 +40,11 @@ ax.set_title("E-commerce System Development Gantt Chart")
 
 # Add grid for better visualization
 plt.grid(axis='x', linestyle='--', alpha=0.7)
+
+# Save the chart to the images directory
+output_dir = 'images'
+os.makedirs(output_dir, exist_ok=True)  # Create the directory if it doesn't exist
+plt.savefig(os.path.join(output_dir, 'Gantt_Chart.png'))
 
 # Show the chart
 plt.tight_layout()
